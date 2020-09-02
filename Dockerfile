@@ -1,5 +1,5 @@
   
-FROM cytopia/ansible:2.7-tools
+FROM cytopia/ansible:2.8-tools
 
 COPY ./dist/index.js /index.js
 
@@ -11,11 +11,11 @@ RUN apk add --no-cache --virtual .build-deps \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # Basic smoke test
-# RUN echo 'node --version' && node --version && \
-#     echo 'yarn versions' && yarn versions && \
-#     echo 'python --version' && python --version && \
-#     echo 'ansible --version' && ansible --version && \
-#     echo 'rsync --version' && rsync --version
+ RUN echo 'node --version' && node --version && \
+     echo 'yarn versions' && yarn versions && \
+     echo 'python --version' && python --version && \
+     echo 'ansible --version' && ansible --version && \
+     echo 'rsync --version' && rsync --version
 
 # Dont use this, we have everything precompiled
 #RUN yarn install --production --silent --non-interactive
